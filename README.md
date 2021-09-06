@@ -10,7 +10,7 @@ Models are realized as API with Flask web-server (with Celery-Redis asynchronous
 
 ## 2. Dataset
 ### 2.1 Dataset for sentiment analysis (labeled)
-I use this one from kaggle https://www.kaggle.com/ankurzing/sentiment-analysis-for-financial-news. Also it can be found here in data folder / [all-data.csv](https://github.com/rasharp/LSML-FinalProject/tree/main/data/all-data.csv)
+I use this one from kaggle https://www.kaggle.com/ankurzing/sentiment-analysis-for-financial-news. Also it can be found here in data folder / [all-data.csv](https://github.com/rasharp/LSML-FinalProject/blob/main/data/all-data.csv)
 
 Dataset consist of 4000+ news with labels (positive, negative or neutral)
 
@@ -18,15 +18,15 @@ Dataset consist of 4000+ news with labels (positive, negative or neutral)
 I use this one from kaggle https://www.kaggle.com/jeet2016/us-financial-news-articles
 This dataset contains news from prime news providers (reuters, CNBC, WSJ) from Jan till May of 2018.
 Total there are more than 300000 news articles (~1 Gb).
-Cleaned dataset in convienient form (tab-separated file) shared on my google drive:
-https://drive.google.com/file/d/1-5fzHbjQa3E9wd61FHG70SaJ6mPTL_M3/view?usp=sharing
+Cleaned dataset in convienient form (tab-separated file) is presented here in data / [news.zip](https://github.com/rasharp/LSML-FinalProject/blob/main/data/news.zip)
 
 ## 3. Model
 ### 3.1 BERT fine-tuned classifier
 Standard pre-trained [BERT-base-uncased](https://huggingface.co/bert-base-uncased) model is used.
 Model fine-tuned with standard parameters.
 All pipeline is available in [Google Colab notebook](https://github.com/rasharp/LSML-FinalProject/blob/main/LSML-2%20Final_BERT.ipynb).
-Accuracy of the model is about 85%
+Accuracy of the model is about 85%.
+Saved [BERT model](https://github.com/rasharp/LSML-FinalProject/blob/main/models/all-data.csv) and [BERT tokenizer](https://github.com/rasharp/LSML-FinalProject/tree/blob/models/all-data.csv) are in the models folder.
 
 ### 3.2 LDA
 I used standard sklearn implementation of LDA for simplicity, but using "big data tools" as PySpark is very straightforward in this case.

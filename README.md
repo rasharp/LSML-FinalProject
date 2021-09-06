@@ -2,11 +2,11 @@
 Final project for MDS LSML-2 course
 
 ## 1. Project description
-Idea of project  is to classify financial news sentiment. In comparison with usual sentiment analysis (like movies or hotels reviews and so on) financial news much less emotional and language is more formal. But in most cases human can definitely recognize wether news is positive or negative in terms of market impact (but it doesn't mean that market response will be the same :) )
+Idea of project  is to classify financial news sentiment. In comparison with usual sentiment analysis (like movies or hotels reviews and so on) financial news much less emotional and language is more formal. But in most cases human can definitely recognize whether news is positive or negative in terms of expected market impact (but it doesn't mean that market response will be really the same as expected :) )
 
 Unfortunately labeled datasets for financial news are rare, I find one on Kaggle but it is not so big, therefore I decided add unlabeled data and solve task of topic discovering using LDA model as an example of unsupervised learning task.
 
-Models are realized as API with Flask web-server (with Celery-Redis asynchronous engine)
+Models are realized as API with Flask web-server (with Celery-Redis asynchronous engine for LDA model and simple synchronous for sentiment analysis model)
 
 ## 2. Dataset
 ### 2.1 Dataset for sentiment analysis (labeled)
@@ -34,3 +34,5 @@ Number of topics is 10.
 All pipeline is available in [Google Colab notebook](https://github.com/rasharp/LSML-FinalProject/blob/main/LSML-2%20FInal_LDA.ipynb).
 
 ## 4. Usage instructions
+For deploy use docker repo rasharp
+Source code is presented in docker folder.

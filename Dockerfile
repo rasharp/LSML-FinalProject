@@ -18,4 +18,4 @@ COPY models.py models.py
 
 COPY start.sh start.sh
 
-ENTRYPOINT ["/bin/bash","start.sh"]
+ENTRYPOINT ["sh", "-c", "celery -A server:celery_app worker & python3 server.py"]

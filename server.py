@@ -6,7 +6,7 @@ import models as M
 from celery import Celery
 from celery.result import AsyncResult
 
-celery_app = Celery("server", broker='redis://localhost:6379/0', backend='redis://localhost:6379/0')
+celery_app = Celery("server", broker='redis://redis:6379/0', backend='redis://redis:6379/0')
 
 # celery task handlers
 @celery_app.task

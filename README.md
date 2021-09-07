@@ -35,5 +35,19 @@ Number of topics is 10.
 All pipeline is available in [Google Colab notebook](https://github.com/rasharp/LSML-FinalProject/blob/main/LSML-2%20FInal_LDA.ipynb).
 
 ## 4. Usage instructions
-For deploy use docker repo rasharp
-Source code is presented in docker folder.
+You can use docker compose using [docker-compose.yaml](https://github.com/rasharp/LSML-FinalProject/blob/main/docker-compose.yaml) presented here: `docker-compose up --build` 
+Compose runs two containers: redis server (port 6379) and flask web-server at port 9001.
+Source code of docker container is [here](https://github.com/rasharp/LSML-FinalProject/blob/main/Dockerfile)
+
+Web-server run at port 9001.
+BERT sentiment analysis: use post requests to http://localhost:9001/sentiment with json data: data should have structure like {'text': 'TEXT FOR ANALYSIS'}
+Request is synchronous.
+Server returns json like {'negative': 0.1, 'neutral': 0.8, 'positive': 0.1}, where number are probabilities for corresponding labels.
+
+LDA topics analysis: use post requests to http://localhost:9001/topics with json data: json should have structure like {'text': 'TEXT FOR ANALYSIS'} 
+Request is asynchronous.
+Server returns json like {'task_id': task.id}.
+Next, use post request to http://localhost:9001/topics{task_id} to obtain result like {'status': 'DONE', 'result': topics} or {'status': 'IN_PROGRESS'}
+topics is json with topics distribution and description.
+
+See [test notebook](https://github.com/rasharp/LSML-FinalProject/blob/main/test.ipynb) for an example of using.

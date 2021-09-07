@@ -99,6 +99,6 @@ if __name__ == "__main__":
         IP = sys.argv[1]
         PORT = int(sys.argv[2])
     else:
-        IP = "127.0.0.1"
-        PORT = 8001
+        IP = "0.0.0.0"
+        PORT = 9001
     app.run(IP, PORT)
